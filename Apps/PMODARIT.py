@@ -7,6 +7,11 @@ def h():
     print('example below:')
     print('1+x+x2+x4+x6 % 1+x+x4+x5 = x')
     print('0b01010111   % 0b110011  = 1')
+    print('------------')
+    print('p_mod(a, b)  |  p_divmod(a, b)')
+    print('p_mul(a, b)  |  p_exp(a, b)')
+    print('p_gcd(a, b)  |  p_egcd(a, b)')
+    print('p_mult_inv(a, mod)')
 
 def p_mul(a, b):
     """ Binary polynomial multiplication (peasant). """
@@ -20,9 +25,9 @@ def p_mod(a, b):
     """ Binary polynomial remainder / modulus.
         Divides a by b and returns resulting remainder polynomial.
         Precondition: b != 0 """
-    bl = b.bit_length()
+    bl = bitlen(b)
     while True:
-        shift = a.bit_length() - bl
+        shift = bitlen(a) - bl
         if shift < 0: return a
         a ^= b << shift
 
@@ -61,9 +66,9 @@ def p_divmod(a, b):
     """ Binary polynomial division.
         Divides a by b and returns resulting (quotient, remainder) polynomials.
         Precondition: b != 0 """
-    q = 0; bl = b.bit_length()
+    q = 0; bl = bitlen(b)
     while True:
-        shift = a.bit_length() - bl
+        shift = bitlen(a) - bl
         if shift < 0: return (q, a)
         q ^= 1 << shift; a ^= b << shift
 
@@ -76,7 +81,7 @@ def p_mult_inv(a, modulus):
     assert d == 1 # inverse exists
     return x
 
-p_degree = lambda a: a.bit_length() - 1
+p_degree = lambda a: bitlen(a) - 1
 p_congruent = lambda a, b, modulus: p_mod(a^b, modulus) == 0
 p_coprime = lambda a, b: p_gcd(a, b) == 1
 
@@ -101,3 +106,7 @@ def polystr(n, variable="x", unicode=False, separator=" + ", constant="1"):
 
 bits = lambda *bits: from_bits(bits)
 bit_str = lambda n, width=0: "{:b}".format(abs(n)).rjust(width, "0")
+
+def bitlen(n):
+    if n > 0: return len(bin(n)) - 2
+    else: return len(bin(n)) - 3
