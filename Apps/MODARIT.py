@@ -1,4 +1,4 @@
-def help():
+def h():
   print('egcd(a, b): (gcd(a, b), d, n)')
   print('mod(n, m): (remainder)')
   print('modinv(a, m): (remainder)')
