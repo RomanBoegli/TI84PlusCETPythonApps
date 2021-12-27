@@ -6,12 +6,13 @@ def h():
     print('also see [to_bits(n)])')
     print('example below:')
     print('1+x+x2+x4+x6 % 1+x+x4+x5 = x')
-    print('0b01010111   % 0b110011  = 1')
+    print('0b1010111    % 0b110011  = 1')
     print('------------')
     print('p_mod(a, b)  |  p_divmod(a, b)')
     print('p_mul(a, b)  |  p_exp(a, b)')
     print('p_gcd(a, b)  |  p_egcd(a, b)')
-    print('p_mult_inv(a, mod)')
+    print('p_mul_inv(a, mod)')
+    print('p_mul_mod(a, b, g)')
 
 def p_mul(a, b):
     """ Binary polynomial multiplication (peasant). """
@@ -30,6 +31,10 @@ def p_mod(a, b):
         shift = bitlen(a) - bl
         if shift < 0: return a
         a ^= b << shift
+
+def p_mul_mod(a, b, g):
+    c = p_mul(a, b)
+    return polystr(p_mod(c, g))
 
 def p_exp(a, exponent):
     """ Binary polynomial exponentiation by squaring (iterative).
@@ -72,7 +77,7 @@ def p_divmod(a, b):
         if shift < 0: return (q, a)
         q ^= 1 << shift; a ^= b << shift
 
-def p_mult_inv(a, modulus):
+def p_mul_inv(a, modulus):
     """ Binary polynomial modular multiplicative inverse.
         Returns b so that: p_mod(p_mul(a, b), modulus) == 1
         Precondition: modulus != 0 and p_coprime(a, modulus)
