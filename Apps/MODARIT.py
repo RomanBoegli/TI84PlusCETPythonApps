@@ -2,7 +2,7 @@ def h():
   print('egcd(a, b): (gcd(a, b), d, n)')
   print('mod(n, m): (remainder)')
   print('modinv(a, m): (remainder)')
-  print('mmodinv(M, m): (M^(-1) mod m)')
+  print('mmodinv(M, m): (M^(-1) mod m)^T')
 def egcd(a, b):
     if a == 0: return (b, 0, 1)
     else: g, y, x = egcd(b % a, a)

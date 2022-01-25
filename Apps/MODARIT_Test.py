@@ -3,7 +3,7 @@ import numpy as np
 from MODARIT import egcd, mod, modinv, mmodinv
 
 class MODARIT_Test(unittest.TestCase): #creating the class
-    
+
     def test_egcd(self):
         # [[input], [output]]
         data = [[[0, 0], [0, 0, 1]],
