@@ -10,7 +10,12 @@ class EULPHI_Test(unittest.TestCase): #creating the class
                 [49, 42],
                 [35, 24],
                 [63, 36],
-                [150, 40]]
+                [143, 120],
+                [120, 32],
+                [110, 40],
+                [150, 40],
+                [7**3, 7**3 - 7**2],
+                [11**5, 11**5 - 11**4]]
 
         for d in data:
             calculated = phi(d[0])
