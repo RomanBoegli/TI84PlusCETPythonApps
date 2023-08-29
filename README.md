@@ -1,4 +1,7 @@
 # TI 84 Plus CE-T Python Apps
+
+![img](https://github.com/RomanBoegli/TI84PlusCETPythonApps/assets/22320200/0507839f-4c25-4dba-a1b2-628dd0eed020)
+
 Small (Circuit)Python programs that run on a [TI-84 Plus CE-T Python Edition](https://education.ti.com/en/products/calculators/graphing-calculators/ti-84-plus-ce-python) calculator. 
 As storage is limited on these calculators, the programs might not be beautifully formatted.
  
