@@ -20,7 +20,7 @@ App | Description | Functions
 
 ## How can I use it?
 
-0. Make sure you have [TI Connect](https://education.ti.com/en/products/computer-software/ti-connect-sw) installed on your computer.
+0. Make sure you have [TI Connect](https://education.ti.com/en/products/computer-software/ti-connect-sw) installed on your computer. [Homebrew](https://brew.sh/) users can use ``brew install ti-connect-ce``.
 1. Download this repo.
 2. Connect your calculator with your computer.
 3. Use TI Connect to upload the app files you need (e.g. ``MODARIT.py``) to your calculator. The ``[NAME]_Test.py`` files serve only testing purposes during development and are not meant to use on your calculator.
